@@ -22,7 +22,7 @@ const Signin = ()=> {
         onSubmit:(values)=> {
             setLoading(true)
             console.log(values)
-            Redirect = '/'
+            
             
         }
     })
