@@ -3,7 +3,8 @@ import { CircularProgress } from "@material-ui/core";
 import { Redirect } from "react-router-dom";
 import { useFormik } from "formik";
 import * as Yup from 'yup';
-const Signin = ()=> {
+import {firebase} from '../firebase'
+const Signin = (props)=> {
     const [loading,setLoading] = useState(false)
 
     const formik = useFormik({
@@ -21,11 +22,23 @@ const Signin = ()=> {
         }),
         onSubmit:(values)=> {
             setLoading(true)
-            console.log(values)
+            submitForm(values)
             
             
         }
     })
+    const submitForm = (values) => {
+        firebase.auth()
+        .signInWithEmailAndPassword (
+            values.email,
+            values.password
+        ).then(()=>{
+            props.history.push('/dashboard')
+        }).catch(error=>{
+            setLoading(false)
+            alert(error)
+        })
+    }
     return (
         <div className="container">
             <div className="signin_wrapper" 

@@ -4,7 +4,8 @@ import Header from './Components/header_footer/Header';
 import Footer from './Components/header_footer/Footer';
 import Home from './Components/Home/Home';
 import Signin from './Components/Signin';
-function App() {
+const App= (props)=> {
+  console.log(props.user.email,'props')
   return (
     <BrowserRouter>
       <Header />
