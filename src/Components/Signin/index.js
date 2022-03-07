@@ -4,6 +4,7 @@ import { Redirect } from "react-router-dom";
 import { useFormik } from "formik";
 import * as Yup from 'yup';
 import {firebase} from '../firebase'
+import { toast } from "react-toastify";
 const Signin = (props)=> {
     const [loading,setLoading] = useState(false)
 
@@ -34,6 +35,16 @@ const Signin = (props)=> {
             values.password
         ).then(()=>{
             props.history.push('/dashboard')
+            toast.success('🦄 Wow so easy!', {
+                position: "top-left",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme:'dark'
+                });
         }).catch(error=>{
             setLoading(false)
             alert(error)

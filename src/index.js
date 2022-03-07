@@ -10,7 +10,7 @@ const Route = (props)=> {
 }
 
 firebase.auth().onAuthStateChanged((user)=>{
-  console.log(user)
+  
   ReactDOM.render(
     <React.StrictMode>
       <Route user={user}/>
