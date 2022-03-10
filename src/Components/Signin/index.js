@@ -5,7 +5,7 @@ import { useFormik } from "formik";
 import * as Yup from 'yup';
 import {firebase} from '../firebase'
 import { toast } from "react-toastify";
-const Signin = (props)=> {
+const Signin = (props) => {
     const [loading,setLoading] = useState(false)
 
     const formik = useFormik({
@@ -50,7 +50,10 @@ const Signin = (props)=> {
             alert(error)
         })
     }
+    
     return (
+        <>
+        { !props.user ?     
         <div className="container">
             <div className="signin_wrapper" 
             style={{
@@ -90,6 +93,9 @@ const Signin = (props)=> {
             </div>
          
         </div>
+    : <Redirect to={'/dashboard'} />
+    }
+    </>
     )
 }
 export default Signin
