@@ -1,6 +1,7 @@
 import React ,{useState} from "react";
 import { Animate } from "react-move";
 import { easePolyOut } from "d3-ease";
+import Stripes from "./Stripes";
 
 const Test = (props) => {
     const [show,setShow] = useState(true)
@@ -68,7 +69,7 @@ const Test = (props) => {
                             opacity
                         }}
                     >
-                        Hello
+                        <Stripes />
                     </div>
                 )}
             </Animate>

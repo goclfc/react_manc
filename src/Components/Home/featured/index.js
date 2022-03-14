@@ -1,10 +1,10 @@
 import React , { useState } from "react";
-import Test from "./test";
+import Stripes from "./Stripes";
 
 const Featured = (props) => {
     return (
         <div className="featured_wrapper">
-            <Test />
+            <Stripes />
             
 
         </div>
