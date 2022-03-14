@@ -2,22 +2,10 @@ import React from 'react'
 import {AppBar,Toolbar,Button} from '@material-ui/core'
 import { Link } from 'react-router-dom'
 import { CityLogo } from '../Utils/Utilities'
-import {firebase} from '../firebase'
-import { toast } from 'react-toastify'
-
+import { logOutHandler } from '../Utils/Utilities'
 
 const Header = ({user})=>{
-    const logOutHandler = ()=>{
-        firebase.auth().signOut()
-        .then(()=>{
-            toast("Wow so easy!")
-            
-        })
-        .catch(error =>{
-            alert (error)
-        })
-    }
-    console.log(user)
+
     return (
         <AppBar 
             position='fixed'

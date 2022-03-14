@@ -4,7 +4,7 @@ import Header from './Components/header_footer/Header';
 import Footer from './Components/header_footer/Footer';
 import Home from './Components/Home/Home';
 import Signin from './Components/Signin';
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import  Dashboard from './Components/Admin/Dashboard';
 import AuthGuard from './Hoc/AuthGuard';
