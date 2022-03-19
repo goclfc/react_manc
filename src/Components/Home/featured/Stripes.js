@@ -1,5 +1,4 @@
 import React from "react";
-import { easeBackInOut } from "d3-ease";
 import { Animate } from "react-move";
 import { easePolyOut } from "d3-ease";
 

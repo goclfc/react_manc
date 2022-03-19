@@ -83,10 +83,10 @@ const Signin = (props) => {
                         { formik.touched.password && formik.errors.password ?
                         <div className="error_label"> {formik.errors.password} </div>
                     
-                    :null}
-                    {loading ? 
+                        :null}
+                        {loading ? 
                         <CircularProgress color="secondary" className="progress" />
-                    :
+                        :
                         <button type="submit"> Log in </button>}
                     
                 </form>
