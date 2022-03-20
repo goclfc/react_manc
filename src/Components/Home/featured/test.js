@@ -1,80 +1,106 @@
-import React ,{useState} from "react";
-import { Animate } from "react-move";
-import { easePolyOut } from "d3-ease";
-import Stripes from "./Stripes";
+import React,{ useState } from 'react';
+import { easePolyOut } from 'd3-ease';
+import  { Animate } from 'react-move';
 
-const Test = (props) => {
-    const [show,setShow] = useState(true)
-    const [bck,setBck] = useState('blue')
-    return (
-        <div>
-            <button onClick={()=>{
-                setBck('green')
-            }}> Update</button>
-                <button onClick={()=>{
-                setShow(false)
-            }}> Leave </button>
+const Test = () => {
+    const [show,setShow] = useState(true);
+    const [bck,setBck] = useState('#ffffff');
 
-            <button onClick={()=>{
-                setShow(true)
-            }}> Show Again </button>
+    return(
+        <>
+            <button
+                onClick={()=>{
+                    setBck('#f44336')
+                }}
+            >
+                Update
+            </button>
+            <button
+                onClick={()=>{
+                    setShow(false)
+                }}
+            >
+                Remove
+            </button>
+            <button
+                onClick={()=>{
+                    setShow(true)
+                }}
+            >
+                show
+            </button>
 
             <Animate
                 show={show}
-                start ={{
+                start={{
                     backgroundColor:bck,
                     width:500,
                     height:500,
                     opacity:0
                 }}
                 enter={{
-                    width:[100],
-                    height:[200],
-                    opacity:[1],
                     backgroundColor:bck,
+                    width:[100],
+                    height:[100],
+                    opacity:[1],
                     timing:{
                         duration:1000,
-                        delay:1000,
+                        dalay:1000,
                         ease:easePolyOut
                     }
                 }}
-                update = {{
+                update={{
                     backgroundColor:bck,
                     opacity:[0.5],
-                    timing: {
+                    timing:{
                         duration:2000,
                         ease:easePolyOut
-
+                    },
+                    events:{
+                        start:()=>{
+                            console.log('STARTED')
+                        },
+                        end:()=>{
+                            console.log('ENDED')
+                        },
+                        interrupt:()=>{
+                            //////
+                        }
                     }
-
                 }}
-                leave = {{
-                    width:[1000],
-                    opacity:[0],
-                    timing:{
-                        delay:100,
-                        duration:500,
-                        ease:easePolyOut
+                leave={[
+                    {
+                        width:[1000],
+                        timing:{
+                            duration:500,
+                            ease:easePolyOut
+                        }
+                    },
+                    {
+                        opacity:[0],
+                        timing:{
+                            delay:2000,
+                            duration:3000,
+                            ease:easePolyOut
+                        } 
                     }
-                }}
-            
+                ]}
             >
-
-                { ({width,height,backgroundColor,opacity}) => (
-                    <div 
+                { ({ width,height,opacity,backgroundColor })=> (
+                    <div
                         style={{
                             backgroundColor,
+                            opacity,
                             width,
-                            height,
-                            opacity
+                            height
                         }}
                     >
-                        <Stripes />
+                        hello
                     </div>
                 )}
-            </Animate>
-
-        </div>
+            </Animate> 
+        </>
     )
 }
-export default Test
+
+export default Test;

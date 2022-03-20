@@ -1,7 +1,7 @@
 import React,{ useState, useEffect } from 'react';
 import { Slide } from "react-awesome-reveal";
 import { matchesCollection } from '../../../firebase';
-import MatchesBlock from '../../../Utils/MatchesBlock';
+import MatchesBlock from '../../Utils/matches_block';
 
 const Blocks = () => {
     const [matches, seMatches ] = useState([])

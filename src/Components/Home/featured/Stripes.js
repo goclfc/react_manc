@@ -1,39 +1,41 @@
-import React from "react";
-import { Animate } from "react-move";
-import { easePolyOut } from "d3-ease";
+import React from 'react';
+import { easePolyOut } from 'd3-ease';
+import  { Animate } from 'react-move';
 
-let stripeState = [
+let stripesState =[
     {
-        id:1,
-        background:'#98c5e8',
+        id:1292751,
+        background:'#98c5e9',
         left:120,
         rotate:25,
         top:-260,
         delay:0
     },
     {
-        id:2,
-        background:'white',
+        id:20392323,
+        background:'#ffffff',
         left:360,
         rotate:25,
         top:-394,
         delay:200
     },
     {
-        id:3,
-        background:'#98c5e8',
+        id:2018261,
+        background:'#98c5e9',
         left:600,
         rotate:25,
         top:-498,
         delay:400
     }
-]
-const Stripes =()=> {
-    console.log(stripeState)
-    const handleShowStripes = () => (
-        stripeState.map((item) =>(
-            <Animate 
-                key={item.id}
+ ];
+
+const Stripes = () => {
+
+    const handleShowStripe = () => (
+
+        stripesState.map((stripe)=>(
+            <Animate
+                key={stripe.id}
                 show={true}
                 start={{
                     background:'#ffffff',
@@ -43,43 +45,42 @@ const Stripes =()=> {
                     top:0
                 }}
                 enter={{
-                    background:`${item.background}`,
+                    background:`${stripe.background}`,
                     opacity:[1],
-                    left:`${item.left}`,
-                    rotate:`${item.rotate}`,
-                    top:`${item.top}`,
+                    left:[stripe.left],
+                    rotate:[stripe.rotate],
+                    top:[stripe.top],
                     timing:{
-
-                        delay:item.delay,
+                        delay:stripe.delay,
                         duration:200,
                         ease:easePolyOut
                     }
-
                 }}
-            
             >
-                { ( { opacity, left, rotate, top, background} )=>(
-                    <div className="stripe"
+                { ({ opacity, left, rotate, top, background})=>(
+                    <div 
+                        className="stripe"
                         style={{
                             background,
                             opacity,
-                            transform:`rotate(${rotate}deg) translate(${left}px,${top}px )`
+                            transform:`rotate(${rotate}deg) translate(${left}px,${top}px)`
                         }}
                     >
-                        
                     </div>
-                ) }
-
+                )}
             </Animate>
         ))
     )
-    return (
+
+
+
+    return(
         <div className="featured_stripes">
-            <div> 
-            {handleShowStripes()}
-            </div>
+            {handleShowStripe()}
         </div>
     )
+
 }
 
-export default Stripes
+
+export default Stripes;

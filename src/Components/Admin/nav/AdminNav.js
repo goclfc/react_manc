@@ -1,43 +1,45 @@
-import React from "react";
-import { Link, withRouter } from "react-router-dom";
-import { ListItem } from "@material-ui/core";
-import { logOutHandler } from "../../Utils/Utilities";
+import React from 'react';
+import { Link, withRouter  } from 'react-router-dom';
+import ListItem from '@material-ui/core/ListItem';
+import {  logoutHandler } from '../../Utils/tools'
 
-
-const AdminNav = (props) => { 
+const AdminNav = (props) => {
 
     const links = [
         {
             title:'Matches',
             linkTo:'/admin_matches'
-
         },
         {
             title:'Players',
             linkTo:'/admin_players'
         }
-
     ]
+
     const renderItems = () => (
-        links.map(item =>(
-            <Link to={item.linkTo} key={item.title}>
+        links.map(link=>(
+            <Link to={link.linkTo} key={link.title}>
                 <ListItem button className="admin_nav_link">
-                    {item.title}
+                    {link.title}
                 </ListItem>
             </Link>
         ))
     )
-    return (
-        <>
-         {renderItems()}
-         <ListItem button className="admin_nav_link" 
-            onClick={()=> logOutHandler()}
-         > 
-            Log out
-        </ListItem>
-        </>
+
+
+    return(
+        <div>
+           {renderItems()}
+            <ListItem button className="admin_nav_link"
+                onClick={()=> logoutHandler()}
+            >
+                Log out
+            </ListItem>
+
+        </div>
     )
 
 }
 
-export default withRouter(AdminNav) 
+
+export default withRouter(AdminNav);
