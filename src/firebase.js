@@ -5,15 +5,14 @@ import 'firebase/compat/firestore';
 // import { cityDb } from './temp/m-city-export';
 
 const firebaseConfig = {
-    apiKey: "AIzaSyBK5Ntm56dwkgPsJjrNQvZoJO4Ra1NcSlE",
-    authDomain: "mcity-be50d.firebaseapp.com",
-    projectId: "mcity-be50d",
-    storageBucket: "mcity-be50d.appspot.com",
-    messagingSenderId: "830895236791",
-    appId: "1:830895236791:web:2f95951657334a2b79cf32",
-    measurementId: "G-L63ZDH5RPG"
+  apiKey: "AIzaSyCWQiqdArP0InisJKmu098i0BCrCSxc4oE",
+  authDomain: "mcity-2560d.firebaseapp.com",
+  projectId: "mcity-2560d",
+  storageBucket: "mcity-2560d.appspot.com",
+  messagingSenderId: "307454487679",
+  appId: "1:307454487679:web:28df79a2fe1994de1fe34a",
+  measurementId: "G-W00PHJMPPW"
 };
-
   // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 const DB = firebase.firestore();
