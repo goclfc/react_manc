@@ -3,7 +3,7 @@ import { Fade } from "react-awesome-reveal";
 import { CircularProgress } from "@material-ui/core";
 import { useFormik } from "formik";
 import * as Yup from 'yup';
-import { showErrorToast, showSuccesToast } from "../../Utils/tools";
+import { showErrorToast, showSuccessToast } from "../../Utils/tools";
 import { promotionsCollection } from "../../../firebase";
 const Enroll = () => {
     const [loading,setLoading] = useState(false)
@@ -19,8 +19,30 @@ const Enroll = () => {
         ,
         onSubmit:( values )=> {
             setLoading(true)
+            submitForm(values)
         }
     })
+
+
+    const submitForm = async(values) => {
+        try{
+            const isOnList = await promotionsCollection.where('email','==',values.email).get();
+            if (isOnList.docs.length >= 1) {
+                setLoading(false)
+                showErrorToast('On the list')
+            }
+            else {
+                await promotionsCollection.add({ email:values.email})
+                formik.resetForm()
+                setLoading(false)
+                showSuccessToast(`Congrats , your email : ${values.email} is added succesfully`)
+                
+            }
+
+        } catch(error){
+            console.log(error)
+        }
+    }
     return (
         <Fade>
             <div className="enroll_wrapper">
