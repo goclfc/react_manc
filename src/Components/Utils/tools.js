@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { firebase } from '../../firebase';
 
+
 import mcitylogo from '../../Resources/images/logos/manchester_city_logo.png';
 
 
@@ -26,7 +27,15 @@ export const CityLogo = (props) => {
         return template
     }
 }
-
+export const Devider = ()=>{
+    return (
+        <div style={{
+            marginTop:'90px'
+        }}>
+            
+        </div>
+    )
+}
 export const Tag = (props) => {
     const template = <div
         style={{

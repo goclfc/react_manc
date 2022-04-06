@@ -9,7 +9,11 @@ import Footer from './Components/Header_footer/Footer';
 import Home from './Components/Home';
 import SignIn from './Components/Signin';
 import Dashboard from './Components/Admin/Dashboard';
-
+import MatchesHome from './Components/Home/matches';
+import MeetPlayers from './Components/Home/meetPlayers';
+import { Devider } from './Components/Utils/tools';
+import AdminPlayers from './Components/Admin/players';
+import AdminLayout from './Hoc/AdminLayout';
 const Routes = ({ user }) => {
     return ( 
         <BrowserRouter >
@@ -27,6 +31,24 @@ const Routes = ({ user }) => {
                     ) 
                 }
         />  
+        <Route path = "/the_matches"
+            exact component = {
+                props => ( 
+                    <> 
+                <Devider />
+                < MatchesHome {...props }
+                    user = { user }
+                    />
+                    </>
+                    ) 
+                }
+        /> 
+
+        <Route path = "/admin_players"
+            exact component = {
+                AuthGuard(AdminPlayers)
+                }
+        /> 
         <Route path = "/"
             exact component = { Home }
         />  

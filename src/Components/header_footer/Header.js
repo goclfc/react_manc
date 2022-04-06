@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { CityLogo } from '../Utils/tools';
 import { logoutHandler } from '../Utils/tools';
 
+
 const Header = ({user}) => {
 
     return(
